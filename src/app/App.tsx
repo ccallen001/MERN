@@ -1,5 +1,8 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import useEnvVar from '@/hooks/use-env-var';
+
+import Nav from '@/components/nav/Nav';
+import Clicker from '@/components/clicker/Clicker';
 
 import '@/app/App.scss';
 
@@ -9,11 +12,8 @@ export default function App() {
   return (
     <div className="App">
       <h1>{TITLE}</h1>
-      <nav>
-        <Link to="">Home</Link> |&nbsp;
-        <Link to="route-0">Route 0</Link> |&nbsp;
-        <Link to="route-1">Route 1</Link>
-      </nav>
+      <Nav />
+      <Clicker />
       <Outlet />
     </div>
   );
