@@ -1,20 +1,22 @@
 import { Outlet } from 'react-router-dom';
-import useEnvVar from '@/hooks/use-env-var';
+import { useEnv } from '@/hooks';
 
 import Nav from '@/components/nav/Nav';
 import Clicker from '@/components/clicker/Clicker';
+import DogFacts from '@/components/dog-facts/DogFacts';
 
 import '@/app/App.scss';
 
-const TITLE = useEnvVar('TITLE');
-
 export default function App() {
+  const TITLE = useEnv('TITLE');
+
   return (
     <div className="App">
       <h1>{TITLE}</h1>
       <Nav />
       <Clicker />
       <Outlet />
+      <DogFacts />
     </div>
   );
 }
