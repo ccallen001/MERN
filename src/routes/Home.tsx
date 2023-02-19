@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import clickCount from '@/store/atoms/click-count';
+import { clickCount } from '@/atoms';
 
 export default function Home() {
   const count = useRecoilValue(clickCount);

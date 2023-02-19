@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import { useEnv } from '@/hooks';
 
-import Nav from '@/components/nav/Nav';
-import Clicker from '@/components/clicker/Clicker';
-import DogFacts from '@/components/dog-facts/DogFacts';
+import { Nav } from '@/components';
+import { Clicker } from '@/components';
+import { DogFacts } from '@/components';
 
 import '@/app/App.scss';
 
