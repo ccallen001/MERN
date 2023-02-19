@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import axios from 'axios';
+
 import { AxiosMethods } from '@/types';
 
 export default function useAxios(
@@ -7,25 +8,21 @@ export default function useAxios(
   url: string,
   body?: Record<string, unknown>
 ) {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [data, setData] = useState<null | Record<string, any>>(null);
+  async function fetch() {
+    try {
+      const { data } = await axios[method](url, body);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  }
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios[method](url, body);
-
-        setData(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [url, body]);
+  const { isLoading, data } = useQuery('axios', fetch, {
+    refetchOnWindowFocus: false
+  });
 
   return {
-    loading,
+    isLoading,
     data
   };
 }
