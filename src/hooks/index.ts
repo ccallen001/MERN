@@ -1,4 +1,4 @@
+import useAxios from './use-axios';
 import useEnv from './use-env';
-import useFetch from './use-fetch';
 
-export { useEnv, useFetch };
+export { useAxios, useEnv };

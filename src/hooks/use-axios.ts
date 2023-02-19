@@ -1,10 +1,11 @@
-// import { FETCH_OPTIONS } from '@/types/interface/fetch-options';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { AxiosMethods } from '@/types';
 
-export default function useFetch(
+export default function useAxios(
+  method: AxiosMethods,
   url: string,
-  /* options?: FETCH_OPTIONS */ body?: Record<string, unknown>
+  body?: Record<string, unknown>
 ) {
   const [loading, setLoading] = useState<boolean>(true);
   const [data, setData] = useState<null | Record<string, any>>(null);
@@ -12,11 +13,7 @@ export default function useFetch(
   useEffect(() => {
     (async () => {
       try {
-        // const resp = await fetch(url, options);
-        // const respJson = await resp.json();
-
-        // setData(respJson);
-        const { data } = await axios.get(url, body);
+        const { data } = await axios[method](url, body);
 
         setData(data);
       } catch (err) {
@@ -25,7 +22,7 @@ export default function useFetch(
         setLoading(false);
       }
     })();
-  }, [url, /* options */ body]);
+  }, [url, body]);
 
   return {
     loading,

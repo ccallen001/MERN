@@ -1,9 +1,10 @@
-import { useFetch } from '@/hooks';
+import { useAxios } from '@/hooks';
 
 import './DogFacts.scss';
 
 export default function DogFacts() {
-  const { loading: dogFactsLoading, data: dogFacts } = useFetch(
+  const { loading: dogFactsLoading, data: dogFacts } = useAxios(
+    'get',
     'https://dogapi.dog/api/facts'
   );
 

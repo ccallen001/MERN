@@ -1,3 +1,3 @@
-import FETCH_OPTIONS from './interface/fetch-options';
+import { AxiosMethods } from './type/axios-methods';
 
-export { FETCH_OPTIONS };
+export type { AxiosMethods };
