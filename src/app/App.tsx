@@ -5,7 +5,7 @@ import { Nav } from '@/components';
 import { Clicker } from '@/components';
 import { DogFacts } from '@/components';
 
-import '@/app/App.scss';
+import './App.scss';
 
 export default function App() {
   const TITLE = useEnv('TITLE');
