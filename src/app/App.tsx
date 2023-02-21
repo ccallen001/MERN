@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { useEnv } from '@/hooks';
 
 import { Nav } from '@/components';
-import { Clicker } from '@/components';
+// import { Clicker } from '@/components';
 import { DogFacts } from '@/components';
 
 import './App.scss';
@@ -14,7 +14,7 @@ export default function App() {
     <div className="App">
       <h1>{TITLE}</h1>
       <Nav />
-      <Clicker />
+      {/* <Clicker /> */}
       <Outlet />
       <DogFacts />
     </div>
