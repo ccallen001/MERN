@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 export default atom({
-  key: 'state',
+  key: 'global-state',
   default: {
     globalKey: 'globalValue'
   }
