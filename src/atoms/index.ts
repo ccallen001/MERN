@@ -1,3 +1,3 @@
-import clickCount from './click-count';
+import globalState from './global-state';
 
-export { clickCount };
+export { globalState };
